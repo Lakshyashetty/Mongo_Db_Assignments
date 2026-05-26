@@ -1,0 +1,218 @@
+use CRUD_DB
+switched to db CRUD_DB
+db["users"].find()
+db.users.insertMany([{
+  name:"Lakshya",
+  age:21,
+  email:"lakshyashetty2403@gmail.com",
+  country:"India"
+},
+{
+  name:"Rahul",
+  age:26,
+  email:"rahul420gmail.com",
+  country:"USA"
+   },
+                     {
+                       name:"Ashraf",
+                       age:32,
+                       email:"ashraf67@gmail.com",
+                       country:"Afghanistan"
+                     },{
+                       name:"Ritesh",
+                       age:39,
+                       email:"riteshchubey30@gmail.com",
+                       country:"Russia"
+                     },{
+                       name:"Laxmi",
+                       age:25,
+                       email:"laxmi@gmail.com",
+                       country:"Japan"
+                     }])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6a15c4cf725ede106baad7e1'),
+    '1': ObjectId('6a15c4cf725ede106baad7e2'),
+    '2': ObjectId('6a15c4cf725ede106baad7e3'),
+    '3': ObjectId('6a15c4cf725ede106baad7e4'),
+    '4': ObjectId('6a15c4cf725ede106baad7e5')
+  }
+}
+db.users.find()
+{
+  _id: ObjectId('6a15c4cf725ede106baad7e1'),
+  name: 'Lakshya',
+  age: 21,
+  email: 'lakshyashetty2403@gmail.com',
+  country: 'India'
+}
+{
+  _id: ObjectId('6a15c4cf725ede106baad7e2'),
+  name: 'Rahul',
+  age: 26,
+  email: 'rahul420gmail.com',
+  country: 'USA'
+}
+{
+  _id: ObjectId('6a15c4cf725ede106baad7e3'),
+  name: 'Ashraf',
+  age: 32,
+  email: 'ashraf67@gmail.com',
+  country: 'Afghanistan'
+}
+{
+  _id: ObjectId('6a15c4cf725ede106baad7e4'),
+  name: 'Ritesh',
+  age: 39,
+  email: 'riteshchubey30@gmail.com',
+  country: 'Russia'
+}
+{
+  _id: ObjectId('6a15c4cf725ede106baad7e5'),
+  name: 'Laxmi',
+  age: 25,
+  email: 'laxmi@gmail.com',
+  country: 'Japan'
+}
+
+db.users.find({age:{$gt:25,$lt:35}})
+{
+  _id: ObjectId('6a15c4cf725ede106baad7e2'),
+  name: 'Rahul',
+  age: 26,
+  email: 'rahul420gmail.com',
+  country: 'USA'
+}
+{
+  _id: ObjectId('6a15c4cf725ede106baad7e3'),
+  name: 'Ashraf',
+  age: 32,
+  email: 'ashraf67@gmail.com',
+  country: 'Afghanistan'
+}
+db.user.find({country:"USA"})
+db.users.find({country:"USA"})
+{
+  _id: ObjectId('6a15c4cf725ede106baad7e2'),
+  name: 'Rahul',
+  age: 26,
+  email: 'rahul420gmail.com',
+  country: 'USA'
+}
+db.users.updateOne({name:"Rahul"},{$set:{email:"rahul42@gmail.com"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.users.find()
+{
+  _id: ObjectId('6a15c4cf725ede106baad7e1'),
+  name: 'Lakshya',
+  age: 21,
+  email: 'lakshyashetty2403@gmail.com',
+  country: 'India'
+}
+{
+  _id: ObjectId('6a15c4cf725ede106baad7e2'),
+  name: 'Rahul',
+  age: 26,
+  email: 'rahul42@gmail.com',
+  country: 'USA'
+}
+{
+  _id: ObjectId('6a15c4cf725ede106baad7e3'),
+  name: 'Ashraf',
+  age: 32,
+  email: 'ashraf67@gmail.com',
+  country: 'Afghanistan'
+}
+{
+  _id: ObjectId('6a15c4cf725ede106baad7e4'),
+  name: 'Ritesh',
+  age: 39,
+  email: 'riteshchubey30@gmail.com',
+  country: 'Russia'
+}
+{
+  _id: ObjectId('6a15c4cf725ede106baad7e5'),
+  name: 'Laxmi',
+  age: 25,
+  email: 'laxmi@gmail.com',
+  country: 'Japan'
+}
+                                         ^
+db.users.updateMany({age:{$gt:30}},{$inc:{age:1}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 2,
+  upsertedCount: 0
+}
+
+db.users.find()
+{
+  _id: ObjectId('6a15c4cf725ede106baad7e1'),
+  name: 'Lakshya',
+  age: 21,
+  email: 'lakshyashetty2403@gmail.com',
+  country: 'India'
+}
+{
+  _id: ObjectId('6a15c4cf725ede106baad7e2'),
+  name: 'Rahul',
+  age: 26,
+  email: 'rahul42@gmail.com',
+  country: 'USA'
+}
+{
+  _id: ObjectId('6a15c4cf725ede106baad7e3'),
+  name: 'Ashraf',
+  age: 33,
+  email: 'ashraf67@gmail.com',
+  country: 'Afghanistan'
+}
+{
+  _id: ObjectId('6a15c4cf725ede106baad7e4'),
+  name: 'Ritesh',
+  age: 40,
+  email: 'riteshchubey30@gmail.com',
+  country: 'Russia'
+}
+{
+  _id: ObjectId('6a15c4cf725ede106baad7e5'),
+  name: 'Laxmi',
+  age: 25,
+  email: 'laxmi@gmail.com',
+  country: 'Japan'
+}
+db.users.deleteOne({name:"Rahul"})
+{
+  acknowledged: true,
+  deletedCount: 1
+}
+db.users.deleteMany({age:{$lt:25}})
+{
+  acknowledged: true,
+  deletedCount: 1
+}
+
+db.users.find()
+{
+  _id: ObjectId('6a15c4cf725ede106baad7e3'),
+  name: 'Ashraf',
+  age: 33,
+  email: 'ashraf67@gmail.com',
+  country: 'Afghanistan'
+}
+{
+  _id: ObjectId('6a15c4cf725ede106baad7e4'),
+  name: 'Ritesh',
+  age: 40,
+  email: 'riteshchubey30@gmail.com',
+  country: 'Russia'
+}
